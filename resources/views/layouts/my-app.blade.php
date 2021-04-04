@@ -40,7 +40,16 @@
           <li class="border-b px-4 mb-2 ">
             <a href="{{url('/')}}">
               <div class="flex flex-row justify-between">
-                <p>Login</p>
+                <p>Home</p>
+                <i data-feather="chevrons-right"></i></i>
+              </div>
+            </a>
+          </li>
+
+          <li class="border-b px-4 mb-2 ">
+            <a href="{{route('members.index')}}">
+              <div class="flex flex-row justify-between">
+                <p>Daftar Anggota</p>
                 <i data-feather="chevrons-right"></i></i>
               </div>
             </a>
