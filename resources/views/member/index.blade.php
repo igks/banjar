@@ -2,9 +2,9 @@
 
 @section('content')
     <div>
-        @if (Auth::check())
+        @if (!Auth::check())
             <div class="bg-blue-500 p-2 rounded-md w-full text-center mt-2">
-                <a href="#" class="text-white">+ Tambah Data Anggota</a>
+                <a href="{{ route('members.create') }}" class="text-white">+ Tambah Data Anggota</a>
             </div>
         @endif
         @if (isset($members))

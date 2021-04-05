@@ -12,12 +12,12 @@ class MemberDetail extends Model
     protected $table ="member_detail";
 
     protected $fillable = [
-        'master_id',
+        'member_master_id',
         'name',
         'status',
         'phone',
         'isActive',
-        'isPay'
+        'isPay',
     ];
 
     public static function rules($merge = [])

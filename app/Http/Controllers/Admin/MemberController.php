@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\Enums\MemberRole;
+use App\Helpers\Enums\PayStatus;
+use App\Helpers\Enums\MemberStatus;
 use App\Http\Controllers\Controller;
+use App\Models\MemberDetail;
 use App\Models\MemberMaster;
 use Illuminate\Http\Request;
 
@@ -26,7 +30,7 @@ class MemberController extends Controller
      */
     public function create()
     {
-        //
+        return view('member.form');
     }
 
     /**
@@ -37,7 +41,36 @@ class MemberController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $master = MemberMaster::create([
+            "name" => $request->input("kepala_keluarga"),
+            "address" => $request->input("alamat"),
+            "phone" => $request->input("phone"),
+            "isActive" => MemberStatus::getValue('active'),
+            "isPay" => PayStatus::getValue('bayar')
+        ]);
+
+        MemberDetail::create([
+            "member_master_id" => $master->id,
+            "name" => $request->input('istri'),
+            "status" => MemberRole::getValue('istri'),
+            "phone" => "",
+            "isActive" => MemberStatus::getValue('active'),
+            "isPay" => PayStatus::getValue('bayar')
+        ]);
+
+        foreach($request->input('anak') as $key=>$value)
+        {
+          MemberDetail::create([
+            "member_master_id" => $master->id,
+            "name" => $value,
+            "status" => MemberRole::getValue('anak'),
+            "phone" => "",
+            "isActive" => MemberStatus::getValue('active'),
+            "isPay" => $request->input('is_pay_'. ($key+1)) == "on" ? PayStatus::getValue('bayar') : PayStatus::getValue('tidak bayar')
+        ]);  
+        }
+
+        return redirect()->route('members.index');
     }
 
     /**
