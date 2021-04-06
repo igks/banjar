@@ -93,8 +93,12 @@ class MemberController extends Controller {
    * @return \Illuminate\Http\Response
    */
   public function edit(int $id) {
-    // $data = $memberMaster->load('detail');
-    $data = MemberMaster::find($id)->load('detail');
+    $data = MemberMaster::with([
+      'detail' => function($q)
+      {
+        $q->orderBy('id','ASC');
+      }
+    ])->where('id','=', $id)->first();
     // dd($data);
     return view('member.edit', compact('data'));
   }
