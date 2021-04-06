@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Eloquent;
 
-class MemberMaster extends Model
+class MemberMaster extends Eloquent
 {
     use HasFactory;
 
@@ -36,5 +37,13 @@ class MemberMaster extends Model
     public function detail()
     {
         return $this->hasMany(MemberDetail::class);
+    }
+
+    public static function boot() {
+        parent::boot();
+
+        static::deleting(function($member) {
+             $member->detail()->get()->each->delete();
+        });
     }
 }

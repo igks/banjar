@@ -17,7 +17,13 @@ class MemberController extends Controller {
    * @return \Illuminate\Http\Response
    */
   public function index() {
-    $members = MemberMaster::all()->load('detail');
+    // $members = MemberMaster::all()->load('detail');
+    $members = MemberMaster::with([
+      'detail' => function($q)
+      {
+        $q->orderBy('id','ASC');
+      }
+    ])->get();
     return view('member.index', compact('members'));
   }
 
@@ -110,7 +116,10 @@ class MemberController extends Controller {
    * @param  \App\Models\MemberMaster  $memberMaster
    * @return \Illuminate\Http\Response
    */
-  public function destroy(MemberMaster $memberMaster) {
-    //
+  public function destroy(int $id) {
+    $data = MemberMaster::find($id);
+    $data->delete();
+
+    return redirect()->route('members.index');
   }
 }
