@@ -9,8 +9,7 @@
             </div>
             <hr>
             <div class="flex flex-row justify-end mt-2">
-                <i data-feather="dollar-sign"></i>
-                <p class="font-bold text-2xl">1000000</p>
+                <p class="font-bold text-2xl">Rp. 1000000</p>
             </div>
         </div>
     </div>
@@ -22,8 +21,7 @@
             </div>
             <hr>
             <div class="flex flex-row justify-end mt-2">
-                <i data-feather="dollar-sign"></i>
-                <p class="font-bold text-2xl">1000000</p>
+                <p class="font-bold text-2xl">Rp. 1000000</p>
             </div>
         </div>
     </div>
@@ -35,8 +33,7 @@
             </div>
             <hr>
             <div class="flex flex-row justify-end mt-2">
-                <i data-feather="dollar-sign"></i>
-                <p class="font-bold text-2xl">1000000</p>
+                <p class="font-bold text-2xl">Rp. 1000000</p>
             </div>
         </div>
     </div>
@@ -48,8 +45,7 @@
             </div>
             <hr>
             <div class="flex flex-row justify-end mt-2">
-                <i data-feather="dollar-sign"></i>
-                <p class="font-bold text-2xl">1000000</p>
+                <p class="font-bold text-2xl">Rp. 1000000</p>
             </div>
         </div>
     </div>
@@ -68,36 +64,36 @@
             <div class="my-2">
                 <p class="text-lg font-bold">Rincian Iuran Banjar</p>
                 <div class="mt-2 mb-5">
-                    <p>A. Iuran perbulan Banjar Batu Aji Barat adalah <strong>100.000</strong>, dibagi
+                    <p>A. Iuran perbulan Banjar Batu Aji Barat adalah <strong>Rp. 100.000</strong>, dibagi
                         menjadi:</p>
                     <table class="w-full">
                         <tr>
                             <td>Kas Banjar</td>
-                            <td>13.000</td>
+                            <td>Rp. 13.000</td>
                         </tr>
                         <tr>
                             <td>Iuran BOP</td>
-                            <td>40.000</td>
+                            <td>Rp. 40.000</td>
                         </tr>
                         <tr>
                             <td>Iuran Tabungan Nyepi</td>
-                            <td>15.000</td>
+                            <td>Rp. 15.000</td>
                         </tr>
                         <tr>
                             <td>Iuran Tabungan Piodalan</td>
-                            <td>20.000</td>
+                            <td>Rp. 20.000</td>
                         </tr>
                         <tr>
                             <td>Iuran Banten</td>
-                            <td>8.000</td>
+                            <td>Rp. 8.000</td>
                         </tr>
                         <tr>
                             <td>Iuran WHDI</td>
-                            <td>2.000</td>
+                            <td>Rp. 2.000</td>
                         </tr>
                         <tr>
                             <td>Operasional Pengurus</td>
-                            <td>2.000</td>
+                            <td>Rp. 2.000</td>
                         </tr>
                     </table>
                 </div>
@@ -107,25 +103,25 @@
                     <table class="w-full">
                         <tr>
                             <td>Iuran BOP</td>
-                            <td>40.000</td>
+                            <td>Rp. 40.000</td>
                         </tr>
                         <tr>
                             <td>Iuran Tabungan Nyepi</td>
-                            <td>15.000</td>
+                            <td>Rp. 15.000</td>
                         </tr>
                         <tr>
                             <td>Iuran Tabungan Piodalan</td>
-                            <td>20.000</td>
+                            <td>Rp. 20.000</td>
                         </tr>
                     </table>
                 </div>
 
                 <div class="mt-2 mb-5">
-                    <p>C. Arisan perbulan <strong>50.000</strong></p>
+                    <p>C. Arisan perbulan <strong>Rp. 50.000</strong></p>
                 </div>
 
                 <div class="mt-2 mb-5">
-                    <p>D. Iuran Pembangunan Pura <strong>1000.000</strong>/KK dan dicicil 10 kali.</p>
+                    <p>D. Iuran Pembangunan Pura <strong>Rp. 1000.000</strong>/KK dan dicicil 10 kali.</p>
                 </div>
             </div>
         </div>

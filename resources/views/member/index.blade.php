@@ -35,6 +35,9 @@
 
                         </div>
                     </div>
+                    <div>
+                    <a href="{{route('members.edit',[$member])}}">Edit</a>
+                    </div>
                 </div>
             @endforeach
         @endif
