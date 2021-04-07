@@ -110,8 +110,50 @@ class MemberController extends Controller {
    * @param  \App\Models\MemberMaster  $memberMaster
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, MemberMaster $memberMaster) {
-    //
+  public function update(int $id, Request $request) {
+    $member = MemberMaster::where('id', '=', $id)->update([
+      "name"     => $request->input("kepala_keluarga"),
+      "address"  => $request->input("alamat"),
+      "phone"    => $request->input("phone"),
+      "isActive" => MemberStatus::getValue('active'),
+      "isPay"    => PayStatus::getValue('bayar'),
+    ]);
+
+    if($request->input('istri_id') != null)
+    {
+      MemberDetail::where('id', '=', $request->input('istri_id'))->update([
+        "name"             => $request->input('istri'),
+        "status"           => MemberRole::getValue('istri'),
+        "phone"            => "",
+        "isActive"         => MemberStatus::getValue('active'),
+        "isPay"            => PayStatus::getValue('bayar'),
+      ]);
+    }
+
+    for($i = 1; $i < 7; $i++)
+    {
+      if($request->input('anak_'.$i.'_id') == null && $request->input('anak_'.$i) != null)
+      {
+        MemberDetail::create([
+          "member_master_id" => $id,
+          "name"             => $request->input('anak_'.$i),
+          "status"           => MemberRole::getValue('anak'),
+          "phone"            => "",
+          "isActive"         => MemberStatus::getValue('active'),
+          "isPay"            => $request->input('is_pay_' . $i) == "on" ? PayStatus::getValue('bayar') : PayStatus::getValue('tidak bayar'),
+        ]);
+      }elseif ($request->input('anak_'.$i.'_id') != null && $request->input('anak_'.$i) != null ) {
+        MemberDetail::where('id', '=', $request->input('anak_'.$i.'_id'))->update([
+        "name"             => $request->input('anak_'.$i),
+        "status"           => MemberRole::getValue('anak'),
+        "phone"            => "",
+        "isActive"         => MemberStatus::getValue('active'),
+        "isPay"            => $request->input('is_pay_' . $i) == "on" ? PayStatus::getValue('bayar') : PayStatus::getValue('tidak bayar'),
+      ]);
+      }
+    }
+
+   return redirect()->route('members.index');
   }
 
   /**
