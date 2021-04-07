@@ -14,12 +14,12 @@
             </div>
 
             <div class="flex flex-col mb-2">
-                <label class="font-bold" for="kepala_keluarga">Alamat:</label>
+                <label class="font-bold" for="alamat">Alamat:</label>
                 <textarea class="rounded" type="text" name="alamat" rows="2"></textarea>
             </div>
 
             <div class="flex flex-col mb-2">
-                <label class="font-bold" for="kepala_keluarga">Nomor Telephone:</label>
+                <label class="font-bold" for="phone">Nomor Telephone:</label>
                 <input class="h-6 rounded" type="text" name="phone">
             </div>
 

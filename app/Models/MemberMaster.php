@@ -2,48 +2,53 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Eloquent;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class MemberMaster extends Eloquent
-{
-    use HasFactory;
+class MemberMaster extends Eloquent {
+  use HasFactory;
 
-    protected $table ="member_master";
+  protected $table = "member_master";
 
-    protected $fillable = [
-        'name',
-        'address',
-        'phone',
-        'isActive',
-        'isPay'
-    ];
+  protected $fillable = [
+    'name',
+    'address',
+    'phone',
+    'isActive',
+    'isPay',
+  ];
 
-    public static function rules($merge = [])
-    {
-        return array_merge(
-            [
-                'name' => 'required',
-                'address' => 'required',
-                'phone' => 'required',
-                'isActive' => 'required',
-                'isPay' => 'required',
-            ],
-            $merge
-        );
-    }
+  public static function rules($merge = []) {
+    return array_merge(
+      [
+        'name'     => 'required',
+        'address'  => 'required',
+        'phone'    => 'required',
+        'isActive' => 'required',
+        'isPay'    => 'required',
+      ],
+      $merge
+    );
+  }
 
-    public function detail()
-    {
-        return $this->hasMany(MemberDetail::class);
-    }
+  public function detail() {
+    return $this->hasMany(MemberDetail::class);
+  }
 
-    public static function boot() {
-        parent::boot();
+  public function pembayaran() {
+    return $this->hasMany(Pembayaran::class);
+  }
 
-        static::deleting(function($member) {
-             $member->detail()->get()->each->delete();
-        });
-    }
+  public static function getName($id) {
+    $member = MemberMaster::find($id);
+    return $member->name;
+  }
+
+  public static function boot() {
+    parent::boot();
+
+    static::deleting(function ($member) {
+      $member->detail()->get()->each->delete();
+    });
+  }
 }

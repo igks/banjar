@@ -17,7 +17,7 @@
 </head>
 
 <body class="font-sans antialiased" style="font-family: Nunito;">
-    <div class="py-3 px-6 md:w-4/12 md:m-auto">
+    <div class="py-3 px-4 md:w-4/12 md:m-auto">
         <div class="mb-1">
             <div id="menu" class="flex flex-row justify-between items-center mb-2" onclick="showMenu()">
                 <div class="flex flex-row">
@@ -56,13 +56,81 @@
                     </li>
 
                     <li class="border-b px-4 mb-2 ">
-                        <a href="{{ url('/') }}">
+                        <a href="{{ route('laporan.index') }}">
                             <div class="flex flex-row justify-between">
-                                <p>Login</p>
+                                <p>Laporan Pembayaran</p>
                                 <i data-feather="chevrons-right"></i></i>
                             </div>
                         </a>
                     </li>
+
+                    <li class="border-b px-4 mb-2 ">
+                        <a href="{{ route('kas.banjar') }}">
+                            <div class="flex flex-row justify-between">
+                                <p>Pembayaran Kas Banjar</p>
+                                <i data-feather="chevrons-right"></i></i>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="border-b px-4 mb-2 ">
+                        <a href="{{ route('kas.bop') }}">
+                            <div class="flex flex-row justify-between">
+                                <p>Pembayaran Kas BOP</p>
+                                <i data-feather="chevrons-right"></i></i>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="border-b px-4 mb-2 ">
+                        <a href="{{ route('kas.whdi') }}">
+                            <div class="flex flex-row justify-between">
+                                <p>Pembayaran Kas WHDI</p>
+                                <i data-feather="chevrons-right"></i></i>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="border-b px-4 mb-2 ">
+                        <a href="{{ route('kas.nyepi') }}">
+                            <div class="flex flex-row justify-between">
+                                <p>Pembayaran Kas Nyepi</p>
+                                <i data-feather="chevrons-right"></i></i>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="border-b px-4 mb-2 ">
+                        <a href="{{ route('kas.piodalan') }}">
+                            <div class="flex flex-row justify-between">
+                                <p>Pembayaran Kas Piodalan</p>
+                                <i data-feather="chevrons-right"></i></i>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="border-b px-4 mb-2 ">
+                        <a href="{{ route('kas.banten') }}">
+                            <div class="flex flex-row justify-between">
+                                <p>Pembayaran Kas Banten</p>
+                                <i data-feather="chevrons-right"></i></i>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="border-b px-4 mb-2 ">
+                        <a href="{{ route('kas.operasional') }}">
+                            <div class="flex flex-row justify-between">
+                                <p>Pembayaran Kas Operasional</p>
+                                <i data-feather="chevrons-right"></i></i>
+                            </div>
+                        </a>
+                    </li>
+
+
+
+
+
 
                     <li class="border-b px-4 mb-2 ">
                         <a href="{{ url('/') }}">
