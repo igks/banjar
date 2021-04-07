@@ -9,7 +9,7 @@
             </div>
             <hr>
             <div class="flex flex-row justify-end mt-2">
-                <p class="font-bold text-2xl">Rp. 1000000</p>
+                <p class="font-bold text-2xl">Rp. {{number_format(1000000, 0, ",", ".")}}</p>
             </div>
         </div>
     </div>
@@ -21,7 +21,7 @@
             </div>
             <hr>
             <div class="flex flex-row justify-end mt-2">
-                <p class="font-bold text-2xl">Rp. 1000000</p>
+                <p class="font-bold text-2xl">Rp. {{number_format(1000000, 0, ",", ".")}}</p>
             </div>
         </div>
     </div>
@@ -33,7 +33,7 @@
             </div>
             <hr>
             <div class="flex flex-row justify-end mt-2">
-                <p class="font-bold text-2xl">Rp. 1000000</p>
+                <p class="font-bold text-2xl">Rp. {{number_format(1000000, 0, ",", ".")}}</p>
             </div>
         </div>
     </div>
@@ -45,7 +45,7 @@
             </div>
             <hr>
             <div class="flex flex-row justify-end mt-2">
-                <p class="font-bold text-2xl">Rp. 1000000</p>
+                <p class="font-bold text-2xl">Rp. {{number_format(1000000, 0, ",", ".")}}</p>
             </div>
         </div>
     </div>
@@ -121,7 +121,7 @@
                 </div>
 
                 <div class="mt-2 mb-5">
-                    <p>D. Iuran Pembangunan Pura <strong>Rp. 1000.000</strong>/KK dan dicicil 10 kali.</p>
+                    <p>D. Iuran Pembangunan Pura <strong>Rp. 1.000.000</strong>/KK dan dicicil 10 kali.</p>
                 </div>
             </div>
         </div>

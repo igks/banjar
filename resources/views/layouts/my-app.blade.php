@@ -17,7 +17,7 @@
 </head>
 
 <body class="font-sans antialiased" style="font-family: Nunito;">
-    <div class="py-3 px-2 md:w-4/12 md:m-auto">
+    <div class="py-3 px-6 md:w-4/12 md:m-auto">
         <div class="mb-1">
             <div id="menu" class="flex flex-row justify-between items-center mb-2" onclick="showMenu()">
                 <div class="flex flex-row">
