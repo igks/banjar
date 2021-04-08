@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="mt-3">
-    <h2 class="font-bold text-center mb-4">Daftar Pembayaran Warga</h2>
+    <h2 class="font-bold text-center mb-4">Daftar Pembayaran {{App\Helpers\Enums\Laporan::getString($iuran)}} - {{$tahun}}</h2>
     @if (count($laporan) == 0)
     <h2 class="text-center">Tidak ada data...</h2>
     @endif

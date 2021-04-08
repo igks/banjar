@@ -38,38 +38,47 @@
 
             <div id="menu-list" class="p-3 rounded-md w-11/12 absolute bg-white mx-auto hidden ">
                 <ul>
-                    <li class="border-b px-4 mb-2 ">
+                    <li class="border-b px-4 mb-2 pb-2 ">
                         <a href="{{ url('/') }}">
-                            <div class="flex flex-row justify-between">
-                                <p>Home</p>
-                                <i data-feather="chevrons-right"></i></i>
+                            <div class="flex flex-row justify-start">
+                                <i data-feather="home"></i></i>
+                                <p class="ml-4">Home</p>
                             </div>
                         </a>
                     </li>
 
-                    <li class="border-b px-4 mb-2 ">
+                    <li class="border-b px-4 mb-2 pb-2 ">
                         <a href="{{ route('members.index') }}">
-                            <div class="flex flex-row justify-between">
-                                <p>Daftar Anggota</p>
-                                <i data-feather="chevrons-right"></i></i>
+                            <div class="flex flex-row justify-start">
+                                <i data-feather="user"></i></i>
+                                <p class="ml-4">Daftar Anggota</p>
                             </div>
                         </a>
                     </li>
 
-                    <li class="border-b px-4 mb-2 ">
+                    <li class="border-b px-4 mb-2 pb-2">
                         <a href="{{ route('laporan.index') }}">
-                            <div class="flex flex-row justify-between">
-                                <p>Laporan Pembayaran</p>
-                                <i data-feather="chevrons-right"></i></i>
+                            <div class="flex flex-row justify-start">
+                                <i data-feather="file"></i></i>
+                                <p class="ml-4">Laporan Pembayaran</p>
                             </div>
                         </a>
                     </li>
 
-                    <li class="border-b px-4 mb-2 ">
+                    <li class="border-b px-4 mb-2 pb-2">
+                        <a href="">
+                            <div class="flex flex-row justify-start">
+                                <i data-feather="dollar-sign"></i></i>
+                                <p class="ml-4">Neraca In - Out</p>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="border-b px-4 mb-2 pb-2">
                         <a href="{{ url('/login') }}">
-                            <div class="flex flex-row justify-between">
-                                <p>Login</p>
-                                <i data-feather="chevrons-right"></i></i>
+                            <div class="flex flex-row justify-start">
+                                <i data-feather="log-in"></i></i>
+                                <p class="ml-4">Login</p>
                             </div>
                         </a>
                     </li>

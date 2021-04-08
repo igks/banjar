@@ -32,7 +32,7 @@ class PembayaranController extends Controller {
       ->get()
       ->groupBy('member_master_id');
 
-    return view('pembayaran.laporan', compact('laporan'));
+    return view('pembayaran.laporan', compact('laporan', 'iuran', 'tahun'));
     // dd($laporan);
   }
 

@@ -2,50 +2,52 @@
 
 @section('content')
 <div class="px-2">
-    <div id="content" class="w-full mt-3">
-        <div class="bg-blue-200 rounded-md p-2">
-            <div class="flex flex-row justify-between mb-2">
-                <p class="font-bold text-lg">Kas Banjar</p>
-            </div>
-            <hr>
-            <div class="flex flex-row justify-end mt-2">
-                <p class="font-bold text-2xl">Rp. {{ number_format(1000000, 0, ',', '.') }}</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="content" class="w-full mt-3">
-        <div class="bg-green-200 rounded-md p-2">
-            <div class="flex flex-row justify-between mb-2">
-                <p class="font-bold text-lg">Tabungan Nyepi</p>
-            </div>
-            <hr>
-            <div class="flex flex-row justify-end mt-2">
-                <p class="font-bold text-2xl">Rp. {{ number_format(1000000, 0, ',', '.') }}</p>
+    <div class="">
+        <div id="content" class="w-full mt-3">
+            <div class="bg-blue-200 rounded-md p-2">
+                <div class="flex flex-row justify-between mb-2">
+                    <p class="font-bold text-md">Kas Banjar</p>
+                </div>
+                <hr>
+                <div class="flex flex-row justify-end mt-2">
+                    <p class="font-bold text-xl">Rp. {{ number_format(1000000, 0, ',', '.') }}</p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div id="content" class="w-full mt-3">
-        <div class="bg-yellow-200 rounded-md p-2">
-            <div class="flex flex-row justify-between mb-2">
-                <p class="font-bold text-lg">Tabungan Piodalan</p>
-            </div>
-            <hr>
-            <div class="flex flex-row justify-end mt-2">
-                <p class="font-bold text-2xl">Rp. {{ number_format(1000000, 0, ',', '.') }}</p>
+        <div id="content" class="w-full mt-3">
+            <div class="bg-green-200 rounded-md p-2">
+                <div class="flex flex-row justify-between mb-2">
+                    <p class="font-bold text-md">Tabungan Nyepi</p>
+                </div>
+                <hr>
+                <div class="flex flex-row justify-end mt-2">
+                    <p class="font-bold text-xl">Rp. {{ number_format(1000000, 0, ',', '.') }}</p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div id="content" class="w-full mt-3">
-        <div class="bg-red-200 rounded-md p-2">
-            <div class="flex flex-row justify-between mb-2">
-                <p class="font-bold text-lg">Kas Banten</p>
+        <div id="content" class="w-full mt-3">
+            <div class="bg-yellow-200 rounded-md p-2">
+                <div class="flex flex-row justify-between mb-2">
+                    <p class="font-bold text-md">Tabungan Piodalan</p>
+                </div>
+                <hr>
+                <div class="flex flex-row justify-end mt-2">
+                    <p class="font-bold text-xl">Rp. {{ number_format(1000000, 0, ',', '.') }}</p>
+                </div>
             </div>
-            <hr>
-            <div class="flex flex-row justify-end mt-2">
-                <p class="font-bold text-2xl">Rp. {{ number_format(1000000, 0, ',', '.') }}</p>
+        </div>
+
+        <div id="content" class="w-full mt-3">
+            <div class="bg-red-200 rounded-md p-2">
+                <div class="flex flex-row justify-between mb-2">
+                    <p class="font-bold text-md">Kas Banten</p>
+                </div>
+                <hr>
+                <div class="flex flex-row justify-end mt-2">
+                    <p class="font-bold text-xl">Rp. {{ number_format(1000000, 0, ',', '.') }}</p>
+                </div>
             </div>
         </div>
     </div>
