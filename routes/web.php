@@ -35,16 +35,8 @@ Route::post('/laporan', [PembayaranController::class, 'store'])->name('laporan.s
 
 Route::get('/laporan/create', [PembayaranController::class, 'create'])->name('laporan.create');
 
-Route::get('/laporan/kas', [PembayaranController::class, 'kasBanjar'])->name('kas.banjar');
+Route::get('/laporan/{id}/edit', [PembayaranController::class, 'edit'])->name('laporan.edit');
 
-Route::get('/laporan/bop', [PembayaranController::class, 'kasBOP'])->name('kas.bop');
+Route::post('/laporan/{id}', [PembayaranController::class, 'update'])->name('laporan.update');
 
-Route::get('/laporan/nyepi', [PembayaranController::class, 'kasNyepi'])->name('kas.nyepi');
-
-Route::get('/laporan/piodalan', [PembayaranController::class, 'kasPiodalan'])->name('kas.piodalan');
-
-Route::get('/laporan/banten', [PembayaranController::class, 'kasBanten'])->name('kas.banten');
-
-Route::get('/laporan/whdi', [PembayaranController::class, 'kasWHDI'])->name('kas.whdi');
-
-Route::get('/laporan/operasional', [PembayaranController::class, 'kasOprasional'])->name('kas.operasional');
+Route::delete('/laporan/{id}', [PembayaranController::class, 'destroy'])->name('laporan.destroy');

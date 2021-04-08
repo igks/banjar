@@ -17,7 +17,7 @@
 </head>
 
 <body class="font-sans antialiased" style="font-family: Nunito;">
-    <div class="py-3 px-4 md:w-4/12 md:m-auto">
+    <div class="py-3 px-4 md:w-4/12 md:m-auto relative">
         <div class="mb-1">
             <div id="menu" class="flex flex-row justify-between items-center mb-2" onclick="showMenu()">
                 <div class="flex flex-row">
@@ -33,9 +33,10 @@
                         Banjar Batu Aji Barat
                     </p>
                 </div>
+                <img src={{url('images/omkara.jpg')}} alt="OmKara" width="40" class="rounded-xl" />
             </div>
 
-            <div id="menu-list" class="p-3 rounded-md w-full hidden">
+            <div id="menu-list" class="p-3 rounded-md w-11/12 absolute bg-white mx-auto hidden ">
                 <ul>
                     <li class="border-b px-4 mb-2 ">
                         <a href="{{ url('/') }}">
@@ -65,91 +66,13 @@
                     </li>
 
                     <li class="border-b px-4 mb-2 ">
-                        <a href="{{ route('kas.banjar') }}">
-                            <div class="flex flex-row justify-between">
-                                <p>Pembayaran Kas Banjar</p>
-                                <i data-feather="chevrons-right"></i></i>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li class="border-b px-4 mb-2 ">
-                        <a href="{{ route('kas.bop') }}">
-                            <div class="flex flex-row justify-between">
-                                <p>Pembayaran Kas BOP</p>
-                                <i data-feather="chevrons-right"></i></i>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li class="border-b px-4 mb-2 ">
-                        <a href="{{ route('kas.whdi') }}">
-                            <div class="flex flex-row justify-between">
-                                <p>Pembayaran Kas WHDI</p>
-                                <i data-feather="chevrons-right"></i></i>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li class="border-b px-4 mb-2 ">
-                        <a href="{{ route('kas.nyepi') }}">
-                            <div class="flex flex-row justify-between">
-                                <p>Pembayaran Kas Nyepi</p>
-                                <i data-feather="chevrons-right"></i></i>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li class="border-b px-4 mb-2 ">
-                        <a href="{{ route('kas.piodalan') }}">
-                            <div class="flex flex-row justify-between">
-                                <p>Pembayaran Kas Piodalan</p>
-                                <i data-feather="chevrons-right"></i></i>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li class="border-b px-4 mb-2 ">
-                        <a href="{{ route('kas.banten') }}">
-                            <div class="flex flex-row justify-between">
-                                <p>Pembayaran Kas Banten</p>
-                                <i data-feather="chevrons-right"></i></i>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li class="border-b px-4 mb-2 ">
-                        <a href="{{ route('kas.operasional') }}">
-                            <div class="flex flex-row justify-between">
-                                <p>Pembayaran Kas Operasional</p>
-                                <i data-feather="chevrons-right"></i></i>
-                            </div>
-                        </a>
-                    </li>
-
-
-
-
-
-
-                    <li class="border-b px-4 mb-2 ">
-                        <a href="{{ url('/') }}">
+                        <a href="{{ url('/login') }}">
                             <div class="flex flex-row justify-between">
                                 <p>Login</p>
                                 <i data-feather="chevrons-right"></i></i>
                             </div>
                         </a>
                     </li>
-
-                    <li class="border-b px-4 mb-2 ">
-                        <a href="{{ url('/') }}">
-                            <div class="flex flex-row justify-between">
-                                <p>Login</p>
-                                <i data-feather="chevrons-right"></i></i>
-                            </div>
-                        </a>
-                    </li>
-
                 </ul>
             </div>
         </div>

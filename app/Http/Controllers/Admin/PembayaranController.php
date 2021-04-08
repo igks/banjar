@@ -36,34 +36,6 @@ class PembayaranController extends Controller {
     // dd($laporan);
   }
 
-  public function kasBanjar() {
-    return view('pembayaran.index');
-  }
-
-  public function kasBOP() {
-    return view('pembayaran.index');
-  }
-
-  public function kasNyepi() {
-    return view('pembayaran.index');
-  }
-
-  public function kasPiodalan() {
-    return view('pembayaran.index');
-  }
-
-  public function kasBanten() {
-    return view('pembayaran.index');
-  }
-
-  public function kasWHDI() {
-    return view('pembayaran.index');
-  }
-
-  public function kasOprasional() {
-    return view('pembayaran.index');
-  }
-
   /**
    * Show the form for creating a new resource.
    *
@@ -86,7 +58,7 @@ class PembayaranController extends Controller {
    */
   public function store(Request $request) {
     Pembayaran::create($request->all());
-    return redirect()->route('laporan.index');
+    return redirect()->route('laporan.create');
   }
 
   /**
@@ -105,8 +77,14 @@ class PembayaranController extends Controller {
    * @param  \App\Models\Pembayaran  $pembayaran
    * @return \Illuminate\Http\Response
    */
-  public function edit(Pembayaran $pembayaran) {
-    //
+  public function edit(int $id) {
+    $data = Pembayaran::find($id);
+    $warga = MemberMaster::all();
+    $iuran = Laporan::getArray();
+    $tahun = [2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030];
+    $bulan = Bulan::getArray();
+    // dd($data);
+    return view('pembayaran.edit', compact('data', 'warga', 'iuran', 'tahun', 'bulan'));
   }
 
   /**
@@ -116,8 +94,10 @@ class PembayaranController extends Controller {
    * @param  \App\Models\Pembayaran  $pembayaran
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, Pembayaran $pembayaran) {
-    //
+  public function update(int $id, Request $request) {
+    Pembayaran::find($id)->update($request->all());
+
+    return redirect()->route('laporan.index');
   }
 
   /**
@@ -126,7 +106,10 @@ class PembayaranController extends Controller {
    * @param  \App\Models\Pembayaran  $pembayaran
    * @return \Illuminate\Http\Response
    */
-  public function destroy(Pembayaran $pembayaran) {
-    //
+  public function destroy(int $id) {
+    $data = Pembayaran::find($id);
+    $data->delete();
+
+    return redirect()->route('laporan.index');
   }
 }
