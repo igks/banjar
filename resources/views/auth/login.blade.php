@@ -32,7 +32,12 @@
             </div>
 
             <div class="flex items-center justify-between mt-4">
-                <a href="{{url('/')}}" class="bg-blue-300 p-1 rounded-md">Home</a>
+                <a href="{{ url('/') }}" class="bg-blue-500 px-4 py-1 text-white font-bold rounded-md">
+                    <div class="flex flex-row">
+                        <i data-feather="home"></i>
+                        <p class="ml-2">Home</p>
+                    </div>
+                </a>
 
                 <x-button class="ml-3">
                     {{ __('Log in') }}

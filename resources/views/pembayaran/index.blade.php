@@ -2,7 +2,7 @@
 
 @section('content')
     <div>
-        @if (!Auth::check())
+        @if (Auth::check())
             <div class="bg-blue-500 p-2 rounded-md w-full text-center mt-2 mb-6">
                 <a href="{{ route('laporan.create') }}" class="text-white">+ Pembayaran</a>
             </div>

@@ -33,55 +33,69 @@
                         Banjar Batu Aji Barat
                     </p>
                 </div>
-                <img src={{url('images/omkara.jpg')}} alt="OmKara" width="40" class="rounded-xl" />
+                <img src={{ url('images/omkara.jpg') }} alt="OmKara" width="40" class="rounded-xl" />
             </div>
 
-            <div id="menu-list" class="p-3 rounded-md w-11/12 absolute bg-white mx-auto hidden ">
+            <div id="menu-list" class="p-3 rounded-md w-11/12 absolute bg-gray-200 z-50 mx-auto hidden ">
                 <ul>
-                    <li class="border-b px-4 mb-2 pb-2 ">
+                    <li class="border-b border-gray-300 px-4 mb-2 pb-2 ">
                         <a href="{{ url('/') }}">
                             <div class="flex flex-row justify-start">
-                                <i data-feather="home"></i></i>
+                                <i data-feather="home"></i>
                                 <p class="ml-4">Home</p>
                             </div>
                         </a>
                     </li>
 
-                    <li class="border-b px-4 mb-2 pb-2 ">
+                    <li class="border-b border-gray-300 px-4 mb-2 pb-2 ">
                         <a href="{{ route('members.index') }}">
                             <div class="flex flex-row justify-start">
-                                <i data-feather="user"></i></i>
+                                <i data-feather="user"></i>
                                 <p class="ml-4">Daftar Anggota</p>
                             </div>
                         </a>
                     </li>
 
-                    <li class="border-b px-4 mb-2 pb-2">
+                    <li class="border-b border-gray-300 px-4 mb-2 pb-2">
                         <a href="{{ route('laporan.index') }}">
                             <div class="flex flex-row justify-start">
-                                <i data-feather="file"></i></i>
+                                <i data-feather="file"></i>
                                 <p class="ml-4">Laporan Pembayaran</p>
                             </div>
                         </a>
                     </li>
 
-                    <li class="border-b px-4 mb-2 pb-2">
+                    <li class="border-b border-gray-300 px-4 mb-2 pb-2">
                         <a href="">
                             <div class="flex flex-row justify-start">
-                                <i data-feather="dollar-sign"></i></i>
+                                <i data-feather="dollar-sign"></i>
                                 <p class="ml-4">Neraca In - Out</p>
                             </div>
                         </a>
                     </li>
 
-                    <li class="border-b px-4 mb-2 pb-2">
-                        <a href="{{ url('/login') }}">
-                            <div class="flex flex-row justify-start">
-                                <i data-feather="log-in"></i></i>
-                                <p class="ml-4">Login</p>
-                            </div>
-                        </a>
-                    </li>
+                    @if (!Auth::check())
+                        <li class="border-b border-gray-300 px-4 mb-2 pb-2">
+                            <a href="{{ url('/login') }}">
+                                <div class="flex flex-row justify-start">
+                                    <i data-feather="log-in"></i>
+                                    <p class="ml-4">Login</p>
+                                </div>
+                            </a>
+                        </li>
+                    @else
+                        <li class="border-b border-gray-300 px-4 mb-2 pb-2">
+                            <form id="form-logout" method="POST" action="{{ route('logout') }}">
+                                @csrf
+                            </form>
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); logout();">
+                                <div class="flex flex-row justify-start">
+                                    <i data-feather="log-out"></i>
+                                    <p class="ml-4">Logout</p>
+                                </div>
+                            </a>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>
@@ -104,6 +118,10 @@
             openMenuIcon.classList.toggle('hidden');
             closeMenuIcon.classList.toggle('hidden');
 
+        }
+
+        function logout() {
+            document.getElementById('form-logout').submit();
         }
 
     </script>
