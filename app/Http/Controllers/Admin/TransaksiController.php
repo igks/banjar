@@ -30,10 +30,11 @@ class TransaksiController extends Controller
         $transaksi = null;
         if($kategori == 0)
         {
-            $transaksi = Transaksi::whereYear('tanggal', '=', $tahun)->get();
+            $transaksi = Transaksi::whereYear('tanggal', '=', $tahun)->orderBy('tanggal', 'DESC')->get();
         }else{
             $transaksi = Transaksi::whereYear('tanggal', '=', $tahun)
                 ->where('kategori', '=', $kategori)
+                ->orderBy('tanggal','DESC')
                 ->get();
         }
 

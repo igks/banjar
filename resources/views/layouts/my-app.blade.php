@@ -60,7 +60,7 @@
                         <a href="{{ route('laporan.index') }}">
                             <div class="flex flex-row justify-start">
                                 <i data-feather="file"></i>
-                                <p class="ml-4">Laporan Pembayaran</p>
+                                <p class="ml-4">Catatan Pembayaran</p>
                             </div>
                         </a>
                     </li>
@@ -69,7 +69,7 @@
                         <a href="{{route('transaksi.index')}}">
                             <div class="flex flex-row justify-start">
                                 <i data-feather="dollar-sign"></i>
-                                <p class="ml-4">Neraca In - Out</p>
+                                <p class="ml-4">Laporan Kas</p>
                             </div>
                         </a>
                     </li>

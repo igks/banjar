@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\MemberController;
 use App\Http\Controllers\Admin\PembayaranController;
 use App\Http\Controllers\Admin\TransaksiController;
+use App\Http\Controllers\Admin\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/auth.php';
 
-Route::get('/', function () {
-  return view('welcome');
-});
+Route::get('/', [WelcomeController::class, 'index']);
 
 Route::get('/dashboard', function () {
   return view('dashboard');

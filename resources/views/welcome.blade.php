@@ -10,7 +10,7 @@
                 </div>
                 <hr>
                 <div class="flex flex-row justify-end mt-2">
-                    <p class="font-bold text-xl">Rp. {{ number_format(1000000, 0, ',', '.') }}</p>
+                    <p class="font-bold text-xl">Rp. {{ number_format($banjar, 0, ',', '.') }}</p>
                 </div>
             </div>
         </div>
@@ -22,7 +22,7 @@
                 </div>
                 <hr>
                 <div class="flex flex-row justify-end mt-2">
-                    <p class="font-bold text-xl">Rp. {{ number_format(1000000, 0, ',', '.') }}</p>
+                    <p class="font-bold text-xl">Rp. {{ number_format($nyepi, 0, ',', '.') }}</p>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
                 </div>
                 <hr>
                 <div class="flex flex-row justify-end mt-2">
-                    <p class="font-bold text-xl">Rp. {{ number_format(1000000, 0, ',', '.') }}</p>
+                    <p class="font-bold text-xl">Rp. {{ number_format($piodalan, 0, ',', '.') }}</p>
                 </div>
             </div>
         </div>
@@ -46,7 +46,7 @@
                 </div>
                 <hr>
                 <div class="flex flex-row justify-end mt-2">
-                    <p class="font-bold text-xl">Rp. {{ number_format(1000000, 0, ',', '.') }}</p>
+                    <p class="font-bold text-xl">Rp. {{ number_format($banten, 0, ',', '.') }}</p>
                 </div>
             </div>
         </div>

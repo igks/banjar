@@ -40,8 +40,7 @@
         </div>
         @endif
     </div>
-</div>
-@endforeach
+    @endforeach
 </div>
 @endsection
 
