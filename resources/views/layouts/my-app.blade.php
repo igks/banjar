@@ -17,8 +17,8 @@
 </head>
 
 <body class="font-sans antialiased" style="font-family: Nunito;">
-    <div class="py-3 px-4 md:w-4/12 md:m-auto relative">
-        <div class="mb-1">
+    <div class="py-3 px-4 md:w-4/12 md:m-auto">
+        <div class="mb-1 relative">
             <div id="menu" class="flex flex-row justify-between items-center mb-2" onclick="showMenu()">
                 <div class="flex flex-row">
                     <i data-feather="menu" id="open-menu" class=""></i>
@@ -36,7 +36,7 @@
                 <img src={{ url('images/omkara.jpg') }} alt="OmKara" width="40" class="rounded-xl" />
             </div>
 
-            <div id="menu-list" class="p-3 rounded-md w-11/12 absolute bg-gray-200 z-50 mx-auto hidden ">
+            <div id="menu-list" class="p-3 rounded-md w-full absolute bg-gray-200 z-50  hidden ">
                 <ul>
                     <li class="border-b border-gray-300 px-4 mb-2 pb-2 ">
                         <a href="{{ url('/') }}">
@@ -66,7 +66,7 @@
                     </li>
 
                     <li class="border-b border-gray-300 px-4 mb-2 pb-2">
-                        <a href="">
+                        <a href="{{route('transaksi.index')}}">
                             <div class="flex flex-row justify-start">
                                 <i data-feather="dollar-sign"></i>
                                 <p class="ml-4">Neraca In - Out</p>
@@ -75,26 +75,26 @@
                     </li>
 
                     @if (!Auth::check())
-                        <li class="border-b border-gray-300 px-4 mb-2 pb-2">
-                            <a href="{{ url('/login') }}">
-                                <div class="flex flex-row justify-start">
-                                    <i data-feather="log-in"></i>
-                                    <p class="ml-4">Login</p>
-                                </div>
-                            </a>
-                        </li>
+                    <li class="border-b border-gray-300 px-4 mb-2 pb-2">
+                        <a href="{{ url('/login') }}">
+                            <div class="flex flex-row justify-start">
+                                <i data-feather="log-in"></i>
+                                <p class="ml-4">Login</p>
+                            </div>
+                        </a>
+                    </li>
                     @else
-                        <li class="border-b border-gray-300 px-4 mb-2 pb-2">
-                            <form id="form-logout" method="POST" action="{{ route('logout') }}">
-                                @csrf
-                            </form>
-                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); logout();">
-                                <div class="flex flex-row justify-start">
-                                    <i data-feather="log-out"></i>
-                                    <p class="ml-4">Logout</p>
-                                </div>
-                            </a>
-                        </li>
+                    <li class="border-b border-gray-300 px-4 mb-2 pb-2">
+                        <form id="form-logout" method="POST" action="{{ route('logout') }}">
+                            @csrf
+                        </form>
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); logout();">
+                            <div class="flex flex-row justify-start">
+                                <i data-feather="log-out"></i>
+                                <p class="ml-4">Logout</p>
+                            </div>
+                        </a>
+                    </li>
                     @endif
                 </ul>
             </div>

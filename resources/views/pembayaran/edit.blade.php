@@ -3,7 +3,7 @@
 @section('content')
 <div class="px-2 mb-10">
     <div class="bg-purple-500 p-1 mb-3">
-        <h2 class="font-bold my-2 text-center text-white">Form Transaksi Pembayaran</h2>
+        <h2 class="font-bold my-2 text-center text-white">Ubah Data Pembayaran</h2>
     </div>
     <form action="{{ route('laporan.update', [$data->id]) }}" method="POST">
         @csrf
@@ -46,7 +46,7 @@
 
         <div class="flex flex-col mb-3">
             <label class="font-bold" for="jumlah">Jumlah:</label>
-            <input class="h-6 rounded" type="number" name="jumlah" value="{{$data->jumlah}}">
+            <input class="rounded" type="number" name="jumlah" value="{{$data->jumlah}}">
         </div>
 
         <div class="flex flex-col mb-3">
