@@ -1,9 +1,10 @@
 @extends('layouts.my-app')
+@section('title', 'Daftar Warga Banjar')
 
 @section('content')
     <div>
         @if (Auth::check())
-            <div class="bg-blue-500 p-2 rounded-md w-full text-center mt-2">
+            <div class="bg-yellow-400 p-2 rounded-md w-full text-center mt-2">
                 <a href="{{ route('members.create') }}" class="text-white">+ Tambah Data Anggota</a>
             </div>
         @endif
