@@ -20,25 +20,32 @@
     <div class="md:w-4/12 md:m-auto">
         <div class="relative">
             <div id="menu"
-                class="flex flex-row justify-between items-center bg-gradient-to-r from-purple-500 to-purple-400 px-2 text-white pt-3"
+                class="bg-gradient-to-b from-purple-700 to-purple-300 px-5 text-white pt-3 fixed top-0 w-full md:w-4/12 md:m-auto rounded-b-3xl z-50"
                 onclick="showMenu()">
-                <div class="flex flex-row">
-                    <i data-feather="menu" id="open-menu" class=""></i>
-                    <i data-feather="x-circle" id="close-menu" class="hidden"></i>
-                    <p class="ml-2 font-bold">Menu</p>
+                <div class="flex flex-col z-50">
+                    <div class="flex flex-row justify-between items-center">
+                        <div class="flex flex-row">
+                            <i data-feather="menu" id="open-menu" class=""></i>
+                            <i data-feather="x-circle" id="close-menu" class="hidden"></i>
+                            <p class="ml-2 font-bold">Menu</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="font-bold">
+                                Laporan
+                            </p>
+                            <p class="font-bold">
+                                Banjar Batu Aji Barat
+                            </p>
+                        </div>
+                    </div>
+                    <div class="text-center mt-6 mb-4">
+                        <h2 class="text-white font-bold text-xl">
+                            @yield('title')
+                        </h2>
+                    </div>
                 </div>
-                <div class="text-center">
-                    <p class="font-bold">
-                        Laporan
-                    </p>
-                    <p class="font-bold">
-                        Banjar Batu Aji Barat
-                    </p>
-                </div>
-                {{-- <img src={{ url('images/omkara.jpg') }} alt="OmKara" width="40" class="rounded-xl" /> --}}
             </div>
-
-            <div id="menu-list" class="p-3 rounded-t-3xl w-full absolute bg-yellow-50 z-50  hidden ">
+            <div id="menu-list" class="-mt-10 p-3 rounded-t-3xl w-full absolute bg-yellow-50 z-50 hidden ">
                 <ul>
                     <li class="border-b border-gray-300 px-4 mb-2 pb-2 ">
                         <a href="{{ url('/') }}">
@@ -101,17 +108,13 @@
                 </ul>
             </div>
         </div>
-        <div
-            class="bg-gradient-to-r from-purple-500 to-purple-400 h-16 rounded-b-3xl flex flex-row justify-center items-center">
-            <h2 class="text-white font-bold text-xl">
-                @yield('title')
-            </h2>
-        </div>
-        <div class="py-3 px-4 mb-16">
+
+        <div class="py-3 px-4 mb-16 mt-28">
             @yield('content')
         </div>
+
         <div
-            class="bg-gradient-to-r from-purple-500 to-purple-400 h-16 rounded-t-3xl flex flex-row justify-center items-center fixed w-full bottom-0 md:w-4/12 md:m-auto">
+            class="bg-gradient-to-b from-purple-300 to-purple-700 h-16 rounded-t-3xl flex flex-row justify-center items-center fixed w-full bottom-0 md:w-4/12 md:m-auto">
             <h2 class="text-white font-bold text-xl">&copy; Banjar Batu Aji Barat - 2021</h2>
         </div>
     </div>
