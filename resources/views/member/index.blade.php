@@ -16,14 +16,24 @@
 
                     </div>
                     <div class="bg-blue-100 rounded-md p-2 text-sm">
-                        <div class="mb-2">
-                            <p class="font-bold">Anggota:</p>
-                            @foreach ($member->detail as $detail)
-                                <p class="ml-4">{{ $detail->name }} -
-                                    {{ App\Helpers\Enums\MemberRole::getString($detail->status) }}</p>
-                            @endforeach
+                        @if (count($member->detail) > 0)
+                            <div class="mb-2">
+                                <p class="font-bold">Anggota:</p>
+                                @foreach ($member->detail as $detail)
+                                    @if ($detail->status == App\Helpers\Enums\MemberRole::getValue('anak'))
+                                        <p class="ml-4">
+                                            {{ App\Helpers\Enums\MemberRole::getString($detail->status) }}-ke
+                                            {{ $loop->index }}
+                                            :
+                                            {{ $detail->name }} </p>
+                                    @else
+                                        <p class="ml-4"> {{ App\Helpers\Enums\MemberRole::getString($detail->status) }} :
+                                            {{ $detail->name }} </p>
+                                    @endif
+                                @endforeach
 
-                        </div>
+                            </div>
+                        @endif
                         <hr>
                         <div class="mb-2">
                             <p class="font-bold">Alamat:</p>
@@ -31,14 +41,25 @@
 
                         </div>
                         <div>
-                            <p class="font-bold">Telephone:</p>
+                            <p class="font-bold">Telepone KK:</p>
                             <p class="ml-4">{{ $member->phone }}</p>
-
                         </div>
+                        @if (count($member->detail) > 0)
+                            <div>
+                                <p class="font-bold">Telepone Istri:</p>
+                                @foreach ($member->detail as $detail)
+                                    @if ($detail->status == App\Helpers\Enums\MemberRole::getValue('istri'))
+                                        <p class="ml-4">
+                                            {{ $detail->phone }} </p>
+                                    @endif
+                                @endforeach
+                            </div>
+                        @endif
                     </div>
                     @if (Auth::check())
                         <div class="my-3 flex flex-row justify-end items-center text-white">
-                            <a class="bg-yellow-400 px-3 py-1 mr-3 rounded" href="{{ route('members.edit', [$member]) }}">
+                            <a class="bg-yellow-400 px-3 py-1 mr-3 rounded"
+                                href="{{ route('members.edit', [$member]) }}">
                                 <i data-feather="edit"></i>
                             </a>
                             <a class="bg-red-400 px-3 py-1 rounded" href="javascript:void(0);"

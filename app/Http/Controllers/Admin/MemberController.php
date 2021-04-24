@@ -19,10 +19,9 @@ class MemberController extends Controller {
   public function index() {
     // $members = MemberMaster::all()->load('detail');
     $members = MemberMaster::with([
-      'detail' => function($q)
-      {
-        $q->orderBy('id','ASC');
-      }
+      'detail' => function ($q) {
+        $q->orderBy('id', 'ASC');
+      },
     ])->get();
     return view('member.index', compact('members'));
   }
@@ -51,25 +50,27 @@ class MemberController extends Controller {
       "isPay"    => PayStatus::getValue('bayar'),
     ]);
 
-    MemberDetail::create([
-      "member_master_id" => $master->id,
-      "name"             => $request->input('istri'),
-      "status"           => MemberRole::getValue('istri'),
-      "phone"            => "",
-      "isActive"         => MemberStatus::getValue('active'),
-      "isPay"            => PayStatus::getValue('bayar'),
-    ]);
+    if ($request->input('status') == 1) {
+      MemberDetail::create([
+        "member_master_id" => $master->id,
+        "name"             => $request->input('istri'),
+        "status"           => MemberRole::getValue('istri'),
+        "phone"            => $request->input('phone-istri'),
+        "isActive"         => MemberStatus::getValue('active'),
+        "isPay"            => PayStatus::getValue('bayar'),
+      ]);
 
-    foreach ($request->input('anak') as $key => $value) {
-      if ($value != null) {
-        MemberDetail::create([
-          "member_master_id" => $master->id,
-          "name"             => $value,
-          "status"           => MemberRole::getValue('anak'),
-          "phone"            => "",
-          "isActive"         => MemberStatus::getValue('active'),
-          "isPay"            => $request->input('is_pay_' . ($key + 1)) == "on" ? PayStatus::getValue('bayar') : PayStatus::getValue('tidak bayar'),
-        ]);
+      foreach ($request->input('anak') as $key => $value) {
+        if ($value != null) {
+          MemberDetail::create([
+            "member_master_id" => $master->id,
+            "name"             => $value,
+            "status"           => MemberRole::getValue('anak'),
+            "phone"            => "",
+            "isActive"         => MemberStatus::getValue('active'),
+            "isPay"            => $request->input('is_pay_' . ($key + 1)) == "on" ? PayStatus::getValue('bayar') : PayStatus::getValue('tidak bayar'),
+          ]);
+        }
       }
     }
 
@@ -94,11 +95,10 @@ class MemberController extends Controller {
    */
   public function edit(int $id) {
     $data = MemberMaster::with([
-      'detail' => function($q)
-      {
-        $q->orderBy('id','ASC');
-      }
-    ])->where('id','=', $id)->first();
+      'detail' => function ($q) {
+        $q->orderBy('id', 'ASC');
+      },
+    ])->where('id', '=', $id)->first();
     // dd($data);
     return view('member.edit', compact('data'));
   }
@@ -119,41 +119,38 @@ class MemberController extends Controller {
       "isPay"    => PayStatus::getValue('bayar'),
     ]);
 
-    if($request->input('istri_id') != null)
-    {
+    if ($request->input('istri_id') != null) {
       MemberDetail::where('id', '=', $request->input('istri_id'))->update([
-        "name"             => $request->input('istri'),
-        "status"           => MemberRole::getValue('istri'),
-        "phone"            => "",
-        "isActive"         => MemberStatus::getValue('active'),
-        "isPay"            => PayStatus::getValue('bayar'),
+        "name"     => $request->input('istri'),
+        "status"   => MemberRole::getValue('istri'),
+        "phone"    => $request->input('phone-istri'),
+        "isActive" => MemberStatus::getValue('active'),
+        "isPay"    => PayStatus::getValue('bayar'),
       ]);
     }
 
-    for($i = 1; $i < 7; $i++)
-    {
-      if($request->input('anak_'.$i.'_id') == null && $request->input('anak_'.$i) != null)
-      {
+    for ($i = 1; $i < 7; $i++) {
+      if ($request->input('anak_' . $i . '_id') == null && $request->input('anak_' . $i) != null) {
         MemberDetail::create([
           "member_master_id" => $id,
-          "name"             => $request->input('anak_'.$i),
+          "name"             => $request->input('anak_' . $i),
           "status"           => MemberRole::getValue('anak'),
           "phone"            => "",
           "isActive"         => MemberStatus::getValue('active'),
           "isPay"            => $request->input('is_pay_' . $i) == "on" ? PayStatus::getValue('bayar') : PayStatus::getValue('tidak bayar'),
         ]);
-      }elseif ($request->input('anak_'.$i.'_id') != null && $request->input('anak_'.$i) != null ) {
-        MemberDetail::where('id', '=', $request->input('anak_'.$i.'_id'))->update([
-        "name"             => $request->input('anak_'.$i),
-        "status"           => MemberRole::getValue('anak'),
-        "phone"            => "",
-        "isActive"         => MemberStatus::getValue('active'),
-        "isPay"            => $request->input('is_pay_' . $i) == "on" ? PayStatus::getValue('bayar') : PayStatus::getValue('tidak bayar'),
-      ]);
+      } elseif ($request->input('anak_' . $i . '_id') != null && $request->input('anak_' . $i) != null) {
+        MemberDetail::where('id', '=', $request->input('anak_' . $i . '_id'))->update([
+          "name"     => $request->input('anak_' . $i),
+          "status"   => MemberRole::getValue('anak'),
+          "phone"    => "",
+          "isActive" => MemberStatus::getValue('active'),
+          "isPay"    => $request->input('is_pay_' . $i) == "on" ? PayStatus::getValue('bayar') : PayStatus::getValue('tidak bayar'),
+        ]);
       }
     }
 
-   return redirect()->route('members.index');
+    return redirect()->route('members.index');
   }
 
   /**

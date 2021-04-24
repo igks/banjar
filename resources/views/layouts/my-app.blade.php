@@ -30,16 +30,16 @@
                             <p class="ml-2 font-bold">Menu</p>
                         </div>
                         <div class="text-center">
-                            <p class="font-bold">
+                            <p class="font-bold text-sm">
                                 Laporan
                             </p>
-                            <p class="font-bold">
+                            <p class="font-bold text-sm">
                                 Banjar Batu Aji Barat
                             </p>
                         </div>
                     </div>
-                    <div class="text-center mt-6 mb-4">
-                        <h2 class="text-white font-bold text-xl">
+                    <div class="text-center mt-4 mb-3">
+                        <h2 class="text-white font-bold text-md">
                             @yield('title')
                         </h2>
                     </div>
@@ -109,13 +109,13 @@
             </div>
         </div>
 
-        <div class="py-3 px-4 mb-16 mt-28">
+        <div class="py-2 px-4 mb-16 mt-24">
             @yield('content')
         </div>
 
         <div
-            class="bg-gradient-to-b from-purple-300 to-purple-700 h-16 rounded-t-3xl flex flex-row justify-center items-center fixed w-full bottom-0 md:w-4/12 md:m-auto">
-            <h2 class="text-white font-bold text-xl">&copy; Banjar Batu Aji Barat - 2021</h2>
+            class="bg-gradient-to-b from-purple-300 to-purple-700 h-12 rounded-t-3xl flex flex-row justify-center items-center fixed w-full bottom-0 md:w-4/12 md:m-auto">
+            <h2 class="text-white font-bold text-sm">&copy; Banjar Batu Aji Barat - 2021</h2>
         </div>
     </div>
 
