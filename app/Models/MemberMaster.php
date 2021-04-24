@@ -41,6 +41,9 @@ class MemberMaster extends Eloquent {
 
   public static function getName($id) {
     $member = MemberMaster::find($id);
+    if ($member == null) {
+      return null;
+    }
     return $member->name;
   }
 
