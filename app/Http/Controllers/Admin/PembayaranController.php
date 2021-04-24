@@ -47,7 +47,14 @@ class PembayaranController extends Controller {
     $tahun = [2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030];
     $bulan = Bulan::getArray();
 
-    return view('pembayaran.form', compact('warga', 'iuran', 'tahun', 'bulan'));
+    $cacheData = [
+      'warga' => null,
+      'jenis' => null,
+      'tahun' => null,
+      'bulan' => null,
+    ];
+
+    return view('pembayaran.form', compact('warga', 'iuran', 'tahun', 'bulan', 'cacheData'));
   }
 
   /**
@@ -57,8 +64,22 @@ class PembayaranController extends Controller {
    * @return \Illuminate\Http\Response
    */
   public function store(Request $request) {
+    // dd($request->all());
+    $cacheData = [
+      'warga' => $request->input('member_master_id'),
+      'jenis' => $request->input('jenis'),
+      'tahun' => $request->input('tahun'),
+      'bulan' => $request->input('bulan'),
+    ];
+
     Pembayaran::create($request->all());
-    return redirect()->route('laporan.create');
+
+    $warga = MemberMaster::all();
+    $iuran = Laporan::getArray();
+    $tahun = [2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030];
+    $bulan = Bulan::getArray();
+
+    return view('pembayaran.form', compact('warga', 'iuran', 'tahun', 'bulan', 'cacheData'));
   }
 
   /**
@@ -78,7 +99,7 @@ class PembayaranController extends Controller {
    * @return \Illuminate\Http\Response
    */
   public function edit(int $id) {
-    $data = Pembayaran::find($id);
+    $data  = Pembayaran::find($id);
     $warga = MemberMaster::all();
     $iuran = Laporan::getArray();
     $tahun = [2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030];
@@ -95,9 +116,21 @@ class PembayaranController extends Controller {
    * @return \Illuminate\Http\Response
    */
   public function update(int $id, Request $request) {
-    Pembayaran::find($id)->update($request->all());
+    // dd($request->all());
+    Pembayaran::find($id)->update($request->except('member_master_id_org', 'jenis_org'));
 
-    return redirect()->route('laporan.index');
+    $iuran = $request->input('jenis_org');
+    $tahun = $request->input('tahun');
+
+    $laporan = Pembayaran::
+      where('jenis', $iuran)
+      ->where('tahun', $tahun)->with('member')
+      ->get()
+      ->groupBy('member_master_id');
+
+    return view('pembayaran.laporan', compact('laporan', 'iuran', 'tahun'));
+
+    // return redirect()->route('laporan.index');
   }
 
   /**

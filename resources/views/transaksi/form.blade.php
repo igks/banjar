@@ -8,14 +8,15 @@
 
             <div class="flex flex-col mb-3">
                 <label class="font-bold" for="member_master_id">Tanggal:</label>
-                <input class="rounded" type="date" name="tanggal">
+                <input class="rounded" type="date" name="tanggal" value="{{ $cacheData['tanggal'] }}">
             </div>
 
             <div class="flex flex-col mb-3">
                 <label class="font-bold" for="jenis">Pilih Jenis Transaksi:</label>
                 <select class="rounded" name="jenis">
                     @foreach ($jenis as $key => $value)
-                        <option value="{{ $key }}">{{ $value }}</option>
+                        <option value="{{ $key }}" {{ $cacheData['jenis'] == $key ? 'selected' : '' }}>
+                            {{ $value }}</option>
                     @endforeach
                 </select>
             </div>
@@ -24,7 +25,8 @@
                 <label class="font-bold" for="jenis">Pilih Kategori Transaksi:</label>
                 <select class="rounded" name="kategori">
                     @foreach ($kategori as $key => $value)
-                        <option value="{{ $key }}">{{ $value }}</option>
+                        <option value="{{ $key }}" {{ $cacheData['kategori'] == $key ? 'selected' : '' }}>
+                            {{ $value }}</option>
                     @endforeach
                 </select>
             </div>

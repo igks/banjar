@@ -10,7 +10,8 @@
                 <label class="font-bold" for="member_master_id">Pilih Warga:</label>
                 <select class="rounded" name="member_master_id">
                     @foreach ($warga as $data)
-                        <option value="{{ $data->id }}">{{ $data->name }}</option>
+                        <option value="{{ $data->id }}" {{ $cacheData['warga'] == $data->id ? 'selected' : '' }}>
+                            {{ $data->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -19,7 +20,8 @@
                 <label class="font-bold" for="jenis">Pilih Jenis Iuran:</label>
                 <select class="rounded" name="jenis">
                     @foreach ($iuran as $key => $value)
-                        <option value="{{ $key }}">{{ $value }}</option>
+                        <option value="{{ $key }}" {{ $cacheData['jenis'] == $key ? 'selected' : '' }}>
+                            {{ $value }}</option>
                     @endforeach
                 </select>
             </div>
@@ -28,7 +30,8 @@
                 <label class="font-bold" for="tahun">Pilih Tahun:</label>
                 <select class="rounded" name="tahun">
                     @foreach ($tahun as $value)
-                        <option value="{{ $value }}">{{ $value }}</option>
+                        <option value="{{ $value }}" {{ $cacheData['tahun'] == $value ? 'selected' : '' }}>
+                            {{ $value }}</option>
                     @endforeach
                 </select>
             </div>
@@ -37,7 +40,8 @@
                 <label class="font-bold" for="bulan">Pilih Bulan:</label>
                 <select class="rounded" name="bulan">
                     @foreach ($bulan as $key => $value)
-                        <option value="{{ $key }}">{{ $value }}</option>
+                        <option value="{{ $key }}" {{ $cacheData['bulan'] == $key ? 'selected' : '' }}>
+                            {{ $value }}</option>
                     @endforeach
                 </select>
             </div>

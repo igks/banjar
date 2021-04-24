@@ -6,6 +6,9 @@
         <form action="{{ route('laporan.update', [$data->id]) }}" method="POST">
             @csrf
 
+            <input type="hidden" value="{{ $data->member_master_id }}" name="member_master_id_org">
+            <input type="hidden" value="{{ $data->jenis }}" name="jenis_org">
+
             <div class="flex flex-col mb-3">
                 <label class="font-bold" for="member_master_id">Pilih Warga:</label>
                 <select class="rounded" name="member_master_id" disabled>
