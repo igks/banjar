@@ -74,7 +74,7 @@ class MemberController extends Controller {
       }
     }
 
-    return redirect()->route('members.index');
+    return redirect()->route('members.index')->with('update', 'success');
   }
 
   /**
@@ -150,7 +150,7 @@ class MemberController extends Controller {
       }
     }
 
-    return redirect()->route('members.index');
+    return redirect()->route('members.index')->with('update', 'success');
   }
 
   /**
@@ -163,6 +163,6 @@ class MemberController extends Controller {
     $data = MemberMaster::find($id);
     $data->delete();
 
-    return redirect()->route('members.index');
+    return redirect()->route('members.index')->with('update', 'success');
   }
 }

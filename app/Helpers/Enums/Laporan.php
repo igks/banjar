@@ -5,13 +5,15 @@ namespace App\Helpers\Enums;
 use App\Helpers\Enums\BaseEnum;
 
 class Laporan extends BaseEnum {
-  const KAS      = 1;
-  const BOP      = 2;
-  const WHDI     = 3;
-  const NYEPI    = 4;
-  const PIODALAN = 5;
-  const BANTEN   = 6;
-  const OPR      = 7;
+  const KAS         = 1;
+  const BOP         = 2;
+  const WHDI        = 3;
+  const NYEPI       = 4;
+  const PIODALAN    = 5;
+  const BANTEN      = 6;
+  const OPR         = 7;
+  const ARISAN      = 8;
+  const PEMBANGUNAN = 9;
 
   public static function getList() {
     return [
@@ -22,6 +24,8 @@ class Laporan extends BaseEnum {
       self::PIODALAN,
       self::BANTEN,
       self::OPR,
+      self::ARISAN,
+      self::PEMBANGUNAN,
     ];
   }
 
@@ -41,6 +45,10 @@ class Laporan extends BaseEnum {
       return "Iuran Banten";
     case self::OPR:
       return "Iuran Operasional";
+    case self::ARISAN:
+      return "Arisan";
+    case self::PEMBANGUNAN:
+      return "Iuran Pembangunan Pura";
     }
   }
 
@@ -60,6 +68,10 @@ class Laporan extends BaseEnum {
       return self::BANTEN;
     case "operasional":
       return self::OPR;
+    case "arisan":
+      return self::ARISAN;
+    case "pembangunan":
+      return self::PEMBANGUNAN;
     }
   }
 }

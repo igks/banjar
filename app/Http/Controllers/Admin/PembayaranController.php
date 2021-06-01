@@ -79,7 +79,9 @@ class PembayaranController extends Controller {
     $tahun = [2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030];
     $bulan = Bulan::getArray();
 
-    return view('pembayaran.form', compact('warga', 'iuran', 'tahun', 'bulan', 'cacheData'));
+    $update = 'success';
+
+    return view('pembayaran.form', compact('warga', 'iuran', 'tahun', 'bulan', 'cacheData', 'update'));
   }
 
   /**
@@ -128,7 +130,9 @@ class PembayaranController extends Controller {
       ->get()
       ->groupBy('member_master_id');
 
-    return view('pembayaran.laporan', compact('laporan', 'iuran', 'tahun'));
+    $update = 'success';
+
+    return view('pembayaran.laporan', compact('laporan', 'iuran', 'tahun', 'update'));
 
     // return redirect()->route('laporan.index');
   }
@@ -139,10 +143,21 @@ class PembayaranController extends Controller {
    * @param  \App\Models\Pembayaran  $pembayaran
    * @return \Illuminate\Http\Response
    */
-  public function destroy(int $id) {
+  public function destroy(int $id, int $tahun, int $iuran) {
     $data = Pembayaran::find($id);
     $data->delete();
 
-    return redirect()->route('laporan.index');
+    $iuran = $iuran;
+    $tahun = $tahun;
+
+    $laporan = Pembayaran::
+      where('jenis', $iuran)
+      ->where('tahun', $tahun)->with('member')
+      ->get()
+      ->groupBy('member_master_id');
+
+    $update = 'success';
+
+    return view('pembayaran.laporan', compact('laporan', 'iuran', 'tahun', 'update'));
   }
 }

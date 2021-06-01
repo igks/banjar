@@ -3,6 +3,9 @@
 
 @section('content')
     <div class="px-2 mb-10">
+        @if ($update ?? '')
+            <div class="update"></div>
+        @endif
         <form action="{{ route('transaksi.store') }}" method="POST">
             @csrf
 
@@ -53,4 +56,16 @@
 
         </form>
     </div>
+@endsection
+
+@section('script')
+    <script>
+        $(function() {
+            let update = $('.update');
+            if (update.length > 0) {
+                alert("Update data berhasil");
+            }
+        });
+
+    </script>
 @endsection

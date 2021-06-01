@@ -2,6 +2,9 @@
 @section('title', 'Form Pembayaran')
 @section('content')
     <div class="px-2 mb-10">
+        @if ($update ?? '')
+            <div class="update"></div>
+        @endif
 
         <form action="{{ route('laporan.store') }}" method="POST">
             @csrf
@@ -18,7 +21,7 @@
 
             <div class="flex flex-col mb-3">
                 <label class="font-bold" for="jenis">Pilih Jenis Iuran:</label>
-                <select class="rounded" name="jenis">
+                <select class="rounded" name="jenis" id="iuran" onchange="checkIuran()">
                     @foreach ($iuran as $key => $value)
                         <option value="{{ $key }}" {{ $cacheData['jenis'] == $key ? 'selected' : '' }}>
                             {{ $value }}</option>
@@ -48,7 +51,7 @@
 
             <div class="flex flex-col mb-3">
                 <label class="font-bold" for="jumlah">Jumlah:</label>
-                <input class="rounded" type="number" name="jumlah">
+                <input class="rounded" type="number" name="jumlah" id="jumlah">
             </div>
 
             <div class="flex flex-col mb-3">
@@ -63,4 +66,40 @@
 
         </form>
     </div>
+@endsection
+@section('script')
+    <script>
+        $(function() {
+            checkIuran();
+
+            let update = $('.update');
+            if (update.length > 0) {
+                alert("Update data berhasil");
+            }
+        });
+
+        function checkIuran() {
+            let iuran = $("#iuran").val();
+            if (iuran == 1) {
+                $("#jumlah").val(13000);
+            } else if (iuran == 2) {
+                $("#jumlah").val(40000);
+            } else if (iuran == 3) {
+                $("#jumlah").val(2000);
+            } else if (iuran == 4) {
+                $("#jumlah").val(15000);
+            } else if (iuran == 5) {
+                $("#jumlah").val(20000);
+            } else if (iuran == 6) {
+                $("#jumlah").val(8000);
+            } else if (iuran == 7) {
+                $("#jumlah").val(2000);
+            } else if (iuran == 8) {
+                $("#jumlah").val(50000);
+            } else if (iuran == 9) {
+                $("#jumlah").val(100000);
+            }
+        }
+
+    </script>
 @endsection

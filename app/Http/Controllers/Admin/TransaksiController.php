@@ -72,7 +72,9 @@ class TransaksiController extends Controller {
     $jenis    = TransaksiType::getArray();
     $kategori = TransaksiCat::getArray();
 
-    return view('transaksi.form', compact('jenis', 'kategori', 'cacheData'));
+    $update = 'success';
+
+    return view('transaksi.form', compact('jenis', 'kategori', 'cacheData', 'update'));
     // return redirect()->route('transaksi.create');
   }
 
@@ -122,7 +124,9 @@ class TransaksiController extends Controller {
         ->get();
     }
 
-    return view('transaksi.view', compact('transaksi', 'kategori', 'tahun'));
+    $update = 'success';
+
+    return view('transaksi.view', compact('transaksi', 'kategori', 'tahun', 'update'));
   }
 
   /**
@@ -131,9 +135,21 @@ class TransaksiController extends Controller {
    * @param  \App\Models\Transaksi  $transaksi
    * @return \Illuminate\Http\Response
    */
-  public function destroy(int $id) {
+  public function destroy(int $id, int $kategori, int $tahun) {
     Transaksi::find($id)->delete();
 
-    return redirect()->route('transaksi.index');
+    $transaksi = null;
+    if ($kategori == 0) {
+      $transaksi = Transaksi::whereYear('tanggal', '=', $tahun)->orderBy('tanggal', 'DESC')->get();
+    } else {
+      $transaksi = Transaksi::whereYear('tanggal', '=', $tahun)
+        ->where('kategori', '=', $kategori)
+        ->orderBy('tanggal', 'DESC')
+        ->get();
+    }
+
+    $update = 'success';
+
+    return view('transaksi.view', compact('transaksi', 'kategori', 'tahun', 'update'));
   }
 }

@@ -3,6 +3,10 @@
 
 @section('content')
     <div>
+        @if (session('update'))
+            <div class="update"></div>
+        @endif
+
         @if (Auth::check())
             <div class="bg-yellow-400 p-2 rounded-md w-full text-center mt-2">
                 <a href="{{ route('members.create') }}" class="text-white">+ Tambah Data Anggota</a>
@@ -82,6 +86,13 @@
 
 @section('script')
     <script>
+        $(function() {
+            let update = $('.update');
+            if (update.length > 0) {
+                alert("Update data berhasil");
+            }
+        });
+
         function deleteData(id) {
             if (confirm('Anda ingin menghapus data?') == true) {
                 document.getElementById('deleteindex-' + id).submit();

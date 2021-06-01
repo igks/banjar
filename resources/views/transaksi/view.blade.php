@@ -6,6 +6,10 @@
 
 @section('content')
     <div class="mt-3">
+        @if ($update ?? '')
+            <div class="update"></div>
+        @endif
+
         @if (count($transaksi) == 0)
             <h2 class="text-center">Tidak ada data...</h2>
         @else
@@ -37,7 +41,8 @@
                                 onclick="deleteData({{ $data['id'] }})">
                                 <i data-feather="trash"></i>
                                 <form id="deleteindex-{{ $data['id'] }}"
-                                    action="{{ route('transaksi.destroy', [$data->id]) }}" method="POST">
+                                    action="{{ route('transaksi.destroy', [$data->id, $data->kategori, $tahun]) }}"
+                                    method="POST">
                                     @csrf
                                     @method("DELETE")
 
@@ -54,6 +59,13 @@
 
 @section('script')
     <script>
+        $(function() {
+            let update = $('.update');
+            if (update.length > 0) {
+                alert("Update data berhasil");
+            }
+        });
+
         function deleteData(id) {
             if (confirm('Anda ingin menghapus data?') == true) {
                 document.getElementById('deleteindex-' + id).submit();
